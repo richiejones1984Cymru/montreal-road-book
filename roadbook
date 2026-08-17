@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#171815">
+
+<title>Montréal — Richie & Alex</title>
+
+<style>
+:root{
+  --ink:#20211e;
+  --cream:#f3f0e8;
+  --paper:#faf8f2;
+  --sage:#8c9786;
+  --stone:#d8d2c5;
+  --dark:#171815;
+  --muted:#73756e;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+}
+
+.hero{
+  min-height:94vh;
+  padding:70px 25px 35px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  color:white;
+  background:
+    linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.72)),
+    url("https://images.unsplash.com/photo-1519178614-68673b201f36?auto=format&fit=crop&w=1600&q=85")
+    center/cover;
+}
+
+.kicker{
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:54px;
+  line-height:.9;
+  margin:12px 0;
+  font-weight:400;
+}
+
+.hero p{
+  max-width:500px;
+  font-size:16px;
+  line-height:1.5;
+}
+
+.tripbar{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:20px;
+}
+
+.glass{
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(12px);
+  border-radius:14px;
+  padding:14px;
+}
+
+.glass small{
+  display:block;
+  opacity:.75;
+  margin-bottom:4px;
+}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  overflow-x:auto;
+  white-space:nowrap;
+  background:rgba(250,248,242,.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--stone);
+  padding:14px 16px;
+}
+
+nav a{
+  color:var(--ink);
+  text-decoration:none;
+  margin-right:21px;
+  font-size:13px;
+  font-weight:650;
+}
+
+main{
+  max-width:760px;
+  margin:auto;
+}
+
+section{
+  padding:45px 22px;
+  border-bottom:1px solid var(--stone);
+}
+
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:10px;
+  color:var(--sage);
+  font-weight:800;
+}
+
+h2{
+  font-family:Georgia,serif;
+  font-weight:400;
+  font-size:36px;
+  margin:7px 0 22px;
+}
+
+h3{
+  font-family:Georgia,serif;
+  font-size:23px;
+  font-weight:400;
+  margin:0 0 7px;
+}
+
+p{
+  line-height:1.6;
+}
+
+.card{
+  background:var(--paper);
+  padding:20px;
+  border-radius:17px;
+  margin:14px 0;
+  box-shadow:0 4px 18px rgba(0,0,0,.045);
+}
+
+.day{
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:var(--sage);
+}
+
+.time{
+  display:inline-block;
+  background:var(--dark);
+  color:white;
+  border-radius:30px;
+  padding:6px 10px;
+  font-size:11px;
+  margin:6px 0 9px;
+}
+
+.tag{
+  display:inline-block;
+  padding:5px 9px;
+  margin:3px 3px 3px 0;
+  background:#e7e4db;
+  border-radius:30px;
+  font-size:11px;
+}
+
+.button{
+  display:inline-block;
+  text-decoration:none;
+  background:var(--dark);
+  color:white;
+  padding:11px 15px;
+  border-radius:10px;
+  margin:7px 5px 0 0;
+  font-size:13px;
+}
+
+.button.light{
+  background:#e3ded2;
+  color:var(--ink);
+}
+
+.note{
+  border-left:3px solid var(--sage);
+  padding:5px 0 5px 15px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.route{
+  padding:14px 0;
+  border-bottom:1px solid #ddd7ca;
+}
+
+.route:last-child{border:0}
+
+.big-number{
+  font-family:Georgia,serif;
+  font-size:34px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.stat{
+  background:var(--paper);
+  border-radius:15px;
+  padding:17px;
+}
+
+footer{
+  background:var(--dark);
+  color:white;
+  padding:55px 25px 80px;
+  text-align:center;
+}
+
+footer h2{
+  margin-bottom:10px;
+}
+
+@media(max-width:500px){
+  .hero h1{font-size:48px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="kicker">The Road Book · 2026</div>
+  <h1>Montréal</h1>
+  <p>
+    Richie & Alex's week of brilliant food, Québécois roads,
+    wine, architecture, neighbourhood wandering and just enough mischief.
+  </p>
+
+  <div class="tripbar">
+    <div class="glass">
+      <small>ARRIVE</small>
+      25 AUG · 20:15
+    </div>
+    <div class="glass">
+      <small>FLY HOME</small>
+      1 SEP · 22:00
+    </div>
+    <div class="glass">
+      <small>BASE</small>
+      Fairmont Queen Elizabeth
+    </div>
+    <div class="glass">
+      <small>STYLE</small>
+      Slow · Local · Fabulous
+    </div>
+  </div>
+</header>
+
+<nav>
+  <a href="#week">The Week</a>
+  <a href="#roadtrip">Road Trip</a>
+  <a href="#eat">Eat</a>
+  <a href="#coffee">Coffee</a>
+  <a href="#drink">Drink</a>
+  <a href="#see">See</a>
+  <a href="#pack">Pack</a>
+</nav>
+
+<main>
+
+<section id="week">
+  <div class="eyebrow">01 · The itinerary</div>
+  <h2>Your Montréal week</h2>
+
+  <div class="card">
+    <div class="day">Tuesday · 25 August</div>
+    <h3>Bonsoir Montréal</h3>
+    <span class="time">20:15</span>
+    <p>
+      Land at Montréal–Trudeau. Your pre-booked sedan Meet & Greet
+      takes you straight to the Fairmont.
+    </p>
+    <p><strong>Transfer:</strong> CAD $180 including taxes.</p>
+    <p class="note">
+      Keep night one deliberately easy: check in, unpack, hotel bar,
+      and get your bearings.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="day">Wednesday · 26 August</div>
+    <h3>The Great Québec Road Trip</h3>
+    <p>
+      Pick up the car and escape Montréal for mountains, lakes and
+      ridiculous photo opportunities around Mont-Tremblant.
+    </p>
+    <span class="tag">Road trip</span>
+    <span class="tag">Photography</span>
+    <span class="tag">Lakes</span>
+    <span class="tag">Québec scenery</span>
+    <br>
+    <a class="button"
+       href="https://www.google.com/maps/dir/Fairmont+The+Queen+Elizabeth,+Montreal/Mont-Tremblant,+QC/"
+       target="_blank">Open route ↗</a>
+  </div>
+
+  <div class="card">
+    <div class="day">Thursday · 27 August</div>
+    <h3>Montréal, properly</h3>
+    <p>
+      Old Montréal, architecture, coffee, photographs and an unhurried
+      afternoon before one of the week's headline dinners.
+    </p>
+    <span class="time">20:00 · BOOKED</span>
+    <p><strong>Dinner — Mastard</strong></p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=Mastard+Montreal"
+       target="_blank">Map ↗</a>
+  </div>
+
+  <div class="card">
+    <div class="day">Friday · 28 August</div>
+    <h3>Neighbourhoods → Gay Village</h3>
+    <p>
+      Keep daytime relaxed. Explore, shop, café-hop and save some
+      energy for Montréal's Village after dark.
+    </p>
+    <span class="tag">Village</span>
+    <span class="tag">Drinks</span>
+    <span class="tag">Late-ish</span>
+  </div>
+
+  <div class="card">
+    <div class="day">Saturday · 29 August</div>
+    <h3>A very Montréal Saturday</h3>
+    <p>
+      Brunch, wandering, local shopping and a long afternoon with
+      nowhere you absolutely have to be.
+    </p>
+    <span class="time">20:15 · BOOKED</span>
+    <p><strong>Dinner — Monarque</strong></p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=Monarque+Montreal"
+       target="_blank">Map ↗</a>
+  </div>
+
+  <div class="card">
+    <div class="day">Sunday · 30 August</div>
+    <h3>Slow Sunday</h3>
+    <p>
+      Coffee, markets, Plateau/Mile End and whatever you've spotted
+      during the week and want to return to.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="day">Monday · 31 August</div>
+    <h3>The bonus day</h3>
+    <p>
+      Deliberately flexible. Use it for shopping, a missed neighbourhood,
+      a long lunch, spa/gym time or simply doing Montréal slowly.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="day">Tuesday · 1 September</div>
+    <h3>One last Montréal morning</h3>
+    <p>
+      Breakfast, final wander and a civilised last lunch before heading
+      to YUL for the 22:00 flight home.
+    </p>
+  </div>
+</section>
+
+<section id="roadtrip">
+  <div class="eyebrow">02 · Wednesday</div>
+  <h2>The Road Trip</h2>
+
+  <p>
+    Montréal → Laurentians → Mont-Tremblant → lakes → Montréal.
+    A day designed around scenery rather than ticking boxes.
+  </p>
+
+  <div class="card">
+    <div class="route">
+      <strong>01 · Leave the Fairmont</strong>
+      <p>Early enough to escape the city without making the morning painful.</p>
+    </div>
+
+    <div class="route">
+      <strong>02 · Laurentian scenery</strong>
+      <p>Forests, lakes and increasingly dramatic Québec landscapes.</p>
+    </div>
+
+    <div class="route">
+      <strong>03 · Mont-Tremblant</strong>
+      <p>Explore the village, stop for coffee and take the photographs.</p>
+    </div>
+
+    <div class="route">
+      <strong>04 · Lake stop</strong>
+      <p>Leave time for an unscheduled waterside stop — this is part of the point.</p>
+    </div>
+
+    <div class="route">
+      <strong>05 · Back to Montréal</strong>
+      <p>Return without committing yourselves to a formal dinner.</p>
+    </div>
+
+    <a class="button"
+       href="https://www.google.com/maps/dir/Fairmont+The+Queen+Elizabeth,+Montreal/Mont-Tremblant,+QC/"
+       target="_blank">Launch Google Maps ↗</a>
+  </div>
+
+  <p class="note">
+    Canada drives on the <strong>right</strong>. At a red light,
+    right turns are normally permitted in Québec — but importantly,
+    <strong>not on the Island of Montréal</strong>.
+  </p>
+</section>
+
+<section id="eat">
+  <div class="eyebrow">03 · Food</div>
+  <h2>Eat exceptionally well</h2>
+
+  <div class="card">
+    <h3>Mastard</h3>
+    <p><strong>Thursday · 20:00 · BOOKED</strong></p>
+    <p>
+      One of the trip's destination dinners. Québécois ingredients,
+      inventive cooking and exactly the sort of meal worth building an
+      evening around.
+    </p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=Mastard+Montreal"
+       target="_blank">Google Maps ↗</a>
+  </div>
+
+  <div class="card">
+    <h3>Monarque</h3>
+    <p><strong>Saturday · 20:15 · BOOKED</strong></p>
+    <p>
+      Polished Old Montréal dining for Saturday night.
+    </p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=Monarque+Montreal"
+       target="_blank">Google Maps ↗</a>
+  </div>
+
+  <div class="card">
+    <h3>Damas</h3>
+    <p>
+      Syrian cooking, dramatic interiors and a strong option if another
+      blow-out dinner suddenly feels necessary.
+    </p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=Damas+Montreal"
+       target="_blank">Google Maps ↗</a>
+  </div>
+
+  <p class="note">
+    Road-book rule: don't overbook. Montréal is a city where an
+    excellent-looking bar, bakery or terrace should be allowed to
+    derail the plan.
+  </p>
+</section>
+
+<section id="coffee">
+  <div class="eyebrow">04 · Café file</div>
+  <h2>Coffee & wandering</h2>
+
+  <div class="card">
+    <h3>Café Olimpico</h3>
+    <p>An institution. Espresso, neighbourhood atmosphere and very Montréal.</p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=Cafe+Olimpico+Montreal"
+       target="_blank">Take me there ↗</a>
+  </div>
+
+  <div class="card">
+    <h3>Tommy Café</h3>
+    <p>Handsome interiors and an easy Old Montréal coffee stop.</p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=Tommy+Cafe+Montreal"
+       target="_blank">Take me there ↗</a>
+  </div>
+
+  <div class="card">
+    <h3>September Surf Café</h3>
+    <p>Minimal, cool and worth having in the back pocket.</p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=September+Surf+Cafe+Montreal"
+       target="_blank">Take me there ↗</a>
+  </div>
+</section>
+
+<section id="drink">
+  <div class="eyebrow">05 · After dark</div>
+  <h2>Wine, cocktails & IPA</h2>
+
+  <div class="card">
+    <h3>Hotel bar</h3>
+    <p>
+      Your easy fallback and the replacement for the unavailable
+      William Gray terrace cocktails.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Montréal wine bars</h3>
+    <p>
+      Look for small natural-wine bars around Little Italy, Mile End
+      and the Plateau. Perfect territory for an unscheduled glass.
+    </p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=wine+bar+Montreal"
+       target="_blank">Find nearby ↗</a>
+  </div>
+
+  <div class="card">
+    <h3>Local craft beer</h3>
+    <p>
+      Montréal does craft beer exceptionally well. Use this when the
+      wine fatigue eventually arrives.
+    </p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=craft+beer+Montreal"
+       target="_blank">Find nearby ↗</a>
+  </div>
+</section>
+
+<section id="see">
+  <div class="eyebrow">06 · Camera roll</div>
+  <h2>The Instagram file</h2>
+
+  <div class="card">
+    <h3>Old Montréal</h3>
+    <p>Cobbles, façades, side streets and early-morning light.</p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=Old+Montreal"
+       target="_blank">Map ↗</a>
+  </div>
+
+  <div class="card">
+    <h3>Mount Royal</h3>
+    <p>The classic city panorama. Go when the light is good.</p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=Mount+Royal+Lookout+Montreal"
+       target="_blank">Map ↗</a>
+  </div>
+
+  <div class="card">
+    <h3>Plateau Mont-Royal</h3>
+    <p>
+      Colourful houses, exterior staircases, leafy streets and
+      effortless Montréal photographs.
+    </p>
+    <a class="button"
+       href="https://www.google.com/maps/search/?api=1&query=Plateau+Mont+Royal+Montreal"
+       target="_blank">Map ↗</a>
+  </div>
+
+  <div class="card">
+    <h3>Mont-Tremblant</h3>
+    <p>
+      The road-trip hero shot: mountains, water and a completely
+      different Québec from downtown Montréal.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">07 · Daily numbers</div>
+  <h2>Keep moving</h2>
+
+  <div class="grid">
+    <div class="stat">
+      <div class="big-number">10–12k</div>
+      <small>STEPS · CITY DAYS</small>
+    </div>
+
+    <div class="stat">
+      <div class="big-number">8k+</div>
+      <small>STEPS · ROAD TRIP</small>
+    </div>
+  </div>
+
+  <p>
+    Montréal is made for walking. Let the city days do most of the
+    work rather than turning the holiday into a fitness programme.
+  </p>
+</section>
+
+<section id="pack">
+  <div class="eyebrow">08 · Suitcase</div>
+  <h2>What to wear</h2>
+
+  <div class="card">
+    <h3>Day</h3>
+    <p>
+      Good trainers, relaxed trousers/shorts, tees, overshirts,
+      sunglasses and something light for changeable weather.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Dinner</h3>
+    <p>
+      Elevated but not stuffy. This is where the statement
+      <strong>AMI</strong> and <strong>Loewe</strong> pieces earn
+      their luggage allowance.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Road trip</h3>
+    <p>
+      Layers, trainers, lightweight jacket, sunglasses, water and a
+      portable charger.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Do not forget</h3>
+    <p>
+      Passport · driving licence · chargers · power bank · sunglasses ·
+      light rain layer · gym kit · comfortable walking shoes.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">09 · Headquarters</div>
+  <h2>Fairmont The Queen Elizabeth</h2>
+
+  <p>
+    Your downtown base for the week — useful for transport,
+    Old Montréal and returning for an afternoon reset before dinner.
+  </p>
+
+  <a class="button"
+     href="https://www.google.com/maps/search/?api=1&query=Fairmont+The+Queen+Elizabeth+Montreal"
+     target="_blank">Open hotel in Maps ↗</a>
+</section>
+
+</main>
+
+<footer>
+  <div class="kicker">Richie & Alex · Québec · 2026</div>
+  <h2>À bientôt, Montréal.</h2>
+  <p>25 August — 1 September 2026</p>
+</footer>
+
+</body>
+</html>
