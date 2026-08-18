@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -15,226 +15,312 @@
   --sage:#8c9786;
   --stone:#d8d2c5;
   --dark:#171815;
-  --muted:#73756e;
+  --muted:#73756f;
+  --white:#ffffff;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
-  background:var(--cream);
+  background:var(--paper);
   color:var(--ink);
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.5;
 }
 
 .hero{
-  min-height:94vh;
-  padding:70px 25px 35px;
+  min-height:72vh;
+  padding:70px 24px 40px;
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
   color:white;
   background:
-    linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.72)),
-    url("https://images.unsplash.com/photo-1519178614-68673b201f36?auto=format&fit=crop&w=1600&q=85")
+    linear-gradient(to bottom,
+      rgba(0,0,0,.08),
+      rgba(0,0,0,.62)),
+    url("https://images.unsplash.com/photo-1519178614-68673b201f36?auto=format&fit=crop&w=1800&q=85")
     center/cover;
 }
 
-.kicker{
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.22em;
   text-transform:uppercase;
-  letter-spacing:3px;
-  font-size:11px;
-  font-weight:700;
+  opacity:.85;
+  margin-bottom:14px;
 }
 
 .hero h1{
-  font-family:Georgia,serif;
-  font-size:54px;
-  line-height:.9;
-  margin:12px 0;
+  font-family:Georgia,"Times New Roman",serif;
   font-weight:400;
+  font-size:clamp(50px,15vw,88px);
+  line-height:.92;
+  margin:0 0 16px;
 }
 
 .hero p{
-  max-width:500px;
-  font-size:16px;
-  line-height:1.5;
+  max-width:560px;
+  font-size:17px;
+  margin:0;
 }
 
-.tripbar{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:20px;
-}
-
-.glass{
-  background:rgba(255,255,255,.16);
-  border:1px solid rgba(255,255,255,.25);
-  backdrop-filter:blur(12px);
-  border-radius:14px;
-  padding:14px;
-}
-
-.glass small{
-  display:block;
-  opacity:.75;
-  margin-bottom:4px;
+.trip-dates{
+  margin-top:24px;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.13em;
 }
 
 nav{
   position:sticky;
   top:0;
-  z-index:20;
+  z-index:50;
+  background:rgba(250,248,242,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,.08);
   overflow-x:auto;
   white-space:nowrap;
-  background:rgba(250,248,242,.95);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--stone);
-  padding:14px 16px;
+  padding:13px 18px;
 }
 
 nav a{
   color:var(--ink);
   text-decoration:none;
-  margin-right:21px;
-  font-size:13px;
-  font-weight:650;
+  margin-right:22px;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
 }
 
 main{
-  max-width:760px;
+  max-width:1000px;
   margin:auto;
+  padding:28px 18px 80px;
 }
 
-section{
-  padding:45px 22px;
+.section{
+  padding:42px 0;
   border-bottom:1px solid var(--stone);
 }
 
-.eyebrow{
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:10px;
+.section-title{
+  margin-bottom:24px;
+}
+
+.kicker{
   color:var(--sage);
-  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.17em;
+  font-size:11px;
+  font-weight:700;
 }
 
 h2{
-  font-family:Georgia,serif;
-  font-weight:400;
+  margin:5px 0 0;
+  font-family:Georgia,"Times New Roman",serif;
   font-size:36px;
-  margin:7px 0 22px;
+  font-weight:400;
 }
 
 h3{
-  font-family:Georgia,serif;
-  font-size:23px;
+  font-family:Georgia,"Times New Roman",serif;
   font-weight:400;
-  margin:0 0 7px;
-}
-
-p{
-  line-height:1.6;
-}
-
-.card{
-  background:var(--paper);
-  padding:20px;
-  border-radius:17px;
-  margin:14px 0;
-  box-shadow:0 4px 18px rgba(0,0,0,.045);
-}
-
-.day{
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  color:var(--sage);
-}
-
-.time{
-  display:inline-block;
-  background:var(--dark);
-  color:white;
-  border-radius:30px;
-  padding:6px 10px;
-  font-size:11px;
-  margin:6px 0 9px;
-}
-
-.tag{
-  display:inline-block;
-  padding:5px 9px;
-  margin:3px 3px 3px 0;
-  background:#e7e4db;
-  border-radius:30px;
-  font-size:11px;
-}
-
-.button{
-  display:inline-block;
-  text-decoration:none;
-  background:var(--dark);
-  color:white;
-  padding:11px 15px;
-  border-radius:10px;
-  margin:7px 5px 0 0;
-  font-size:13px;
-}
-
-.button.light{
-  background:#e3ded2;
-  color:var(--ink);
-}
-
-.note{
-  border-left:3px solid var(--sage);
-  padding:5px 0 5px 15px;
-  color:var(--muted);
-  font-size:14px;
-}
-
-.route{
-  padding:14px 0;
-  border-bottom:1px solid #ddd7ca;
-}
-
-.route:last-child{border:0}
-
-.big-number{
-  font-family:Georgia,serif;
-  font-size:34px;
+  font-size:24px;
+  margin:0 0 8px;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
 }
 
-.stat{
-  background:var(--paper);
-  border-radius:15px;
-  padding:17px;
+.card{
+  background:var(--cream);
+  border-radius:18px;
+  padding:22px;
+  border:1px solid rgba(0,0,0,.05);
+}
+
+.card.dark{
+  background:var(--dark);
+  color:white;
+}
+
+.big-number{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:48px;
+  line-height:1;
+  margin:8px 0;
+}
+
+.small{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.dark .small{
+  color:#bbbcb8;
+}
+
+.status{
+  display:inline-block;
+  padding:6px 10px;
+  margin-top:8px;
+  background:rgba(140,151,134,.18);
+  border-radius:100px;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.weather-icon{
+  font-size:38px;
+}
+
+.weather-temp{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:58px;
+  margin:4px 0;
+}
+
+.forecast{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-top:18px;
+}
+
+.forecast-day{
+  background:rgba(255,255,255,.55);
+  padding:12px 6px;
+  border-radius:12px;
+  text-align:center;
+  font-size:12px;
+}
+
+.forecast-day strong{
+  display:block;
+  margin-top:5px;
+}
+
+.fx-box{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:15px;
+}
+
+.fx-box input{
+  width:100%;
+  border:none;
+  background:white;
+  padding:14px;
+  border-radius:12px;
+  font-size:17px;
+}
+
+.fx-result{
+  margin-top:15px;
+  font-size:16px;
+}
+
+.day{
+  display:grid;
+  grid-template-columns:70px 1fr;
+  gap:18px;
+  padding:24px 0;
+  border-top:1px solid var(--stone);
+}
+
+.day-date{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  color:var(--muted);
+}
+
+.day-body p{
+  margin:7px 0;
+}
+
+.booking{
+  background:var(--dark);
+  color:white;
+  border-radius:16px;
+  padding:16px 18px;
+  margin-top:12px;
+}
+
+.booking .time{
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  opacity:.7;
+}
+
+.button{
+  display:inline-block;
+  margin-top:12px;
+  padding:11px 16px;
+  border-radius:100px;
+  border:1px solid currentColor;
+  text-decoration:none;
+  color:inherit;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.note{
+  border-left:3px solid var(--sage);
+  padding:4px 0 4px 16px;
+  margin:18px 0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:18px;
 }
 
 footer{
   background:var(--dark);
-  color:white;
-  padding:55px 25px 80px;
+  color:#ddd;
+  padding:50px 24px calc(50px + env(safe-area-inset-bottom));
   text-align:center;
 }
 
-footer h2{
-  margin-bottom:10px;
+footer strong{
+  display:block;
+  color:white;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:28px;
+  font-weight:400;
+  margin-bottom:5px;
 }
 
-@media(max-width:500px){
-  .hero h1{font-size:48px}
+.loading{
+  opacity:.65;
+}
+
+@media(max-width:650px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .day{
+    grid-template-columns:1fr;
+    gap:5px;
+  }
+
+  .forecast{
+    grid-template-columns:repeat(4,1fr);
+  }
 }
 </style>
 </head>
@@ -242,427 +328,595 @@ footer h2{
 <body>
 
 <header class="hero">
-  <div class="kicker">The Road Book · 2026</div>
+  <div class="eyebrow">The Montréal Road Book</div>
   <h1>Montréal</h1>
   <p>
-    Richie & Alex's week of brilliant food, Québécois roads,
-    wine, architecture, neighbourhood wandering and just enough mischief.
+    Seven nights of neighbourhood wandering, very good food,
+    Québécois wine, craft beer and one suitably dramatic road trip.
   </p>
 
-  <div class="tripbar">
-    <div class="glass">
-      <small>ARRIVE</small>
-      25 AUG · 20:15
-    </div>
-    <div class="glass">
-      <small>FLY HOME</small>
-      1 SEP · 22:00
-    </div>
-    <div class="glass">
-      <small>BASE</small>
-      Fairmont Queen Elizabeth
-    </div>
-    <div class="glass">
-      <small>STYLE</small>
-      Slow · Local · Fabulous
-    </div>
+  <div class="trip-dates">
+    Richie & Alex · 25 August — 1 September 2026
   </div>
 </header>
 
 <nav>
-  <a href="#week">The Week</a>
-  <a href="#roadtrip">Road Trip</a>
-  <a href="#eat">Eat</a>
-  <a href="#coffee">Coffee</a>
-  <a href="#drink">Drink</a>
-  <a href="#see">See</a>
-  <a href="#pack">Pack</a>
+  <a href="#today">Live</a>
+  <a href="#plan">Road Book</a>
+  <a href="#bookings">Bookings</a>
+  <a href="#money">Money</a>
+  <a href="#notes">Notes</a>
 </nav>
 
 <main>
 
-<section id="week">
-  <div class="eyebrow">01 · The itinerary</div>
-  <h2>Your Montréal week</h2>
+<section class="section" id="today">
 
-  <div class="card">
-    <div class="day">Tuesday · 25 August</div>
-    <h3>Bonsoir Montréal</h3>
-    <span class="time">20:15</span>
-    <p>
-      Land at Montréal–Trudeau. Your pre-booked sedan Meet & Greet
-      takes you straight to the Fairmont.
-    </p>
-    <p><strong>Transfer:</strong> CAD $180 including taxes.</p>
-    <p class="note">
-      Keep night one deliberately easy: check in, unpack, hotel bar,
-      and get your bearings.
-    </p>
+  <div class="section-title">
+    <div class="kicker">Right now</div>
+    <h2>Montréal live</h2>
   </div>
-
-  <div class="card">
-    <div class="day">Wednesday · 26 August</div>
-    <h3>The Great Québec Road Trip</h3>
-    <p>
-      Pick up the car and escape Montréal for mountains, lakes and
-      ridiculous photo opportunities around Mont-Tremblant.
-    </p>
-    <span class="tag">Road trip</span>
-    <span class="tag">Photography</span>
-    <span class="tag">Lakes</span>
-    <span class="tag">Québec scenery</span>
-    <br>
-    <a class="button"
-       href="https://www.google.com/maps/dir/Fairmont+The+Queen+Elizabeth,+Montreal/Mont-Tremblant,+QC/"
-       target="_blank">Open route ↗</a>
-  </div>
-
-  <div class="card">
-    <div class="day">Thursday · 27 August</div>
-    <h3>Montréal, properly</h3>
-    <p>
-      Old Montréal, architecture, coffee, photographs and an unhurried
-      afternoon before one of the week's headline dinners.
-    </p>
-    <span class="time">20:00 · BOOKED</span>
-    <p><strong>Dinner — Mastard</strong></p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=Mastard+Montreal"
-       target="_blank">Map ↗</a>
-  </div>
-
-  <div class="card">
-    <div class="day">Friday · 28 August</div>
-    <h3>Neighbourhoods → Gay Village</h3>
-    <p>
-      Keep daytime relaxed. Explore, shop, café-hop and save some
-      energy for Montréal's Village after dark.
-    </p>
-    <span class="tag">Village</span>
-    <span class="tag">Drinks</span>
-    <span class="tag">Late-ish</span>
-  </div>
-
-  <div class="card">
-    <div class="day">Saturday · 29 August</div>
-    <h3>A very Montréal Saturday</h3>
-    <p>
-      Brunch, wandering, local shopping and a long afternoon with
-      nowhere you absolutely have to be.
-    </p>
-    <span class="time">20:15 · BOOKED</span>
-    <p><strong>Dinner — Monarque</strong></p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=Monarque+Montreal"
-       target="_blank">Map ↗</a>
-  </div>
-
-  <div class="card">
-    <div class="day">Sunday · 30 August</div>
-    <h3>Slow Sunday</h3>
-    <p>
-      Coffee, markets, Plateau/Mile End and whatever you've spotted
-      during the week and want to return to.
-    </p>
-  </div>
-
-  <div class="card">
-    <div class="day">Monday · 31 August</div>
-    <h3>The bonus day</h3>
-    <p>
-      Deliberately flexible. Use it for shopping, a missed neighbourhood,
-      a long lunch, spa/gym time or simply doing Montréal slowly.
-    </p>
-  </div>
-
-  <div class="card">
-    <div class="day">Tuesday · 1 September</div>
-    <h3>One last Montréal morning</h3>
-    <p>
-      Breakfast, final wander and a civilised last lunch before heading
-      to YUL for the 22:00 flight home.
-    </p>
-  </div>
-</section>
-
-<section id="roadtrip">
-  <div class="eyebrow">02 · Wednesday</div>
-  <h2>The Road Trip</h2>
-
-  <p>
-    Montréal → Laurentians → Mont-Tremblant → lakes → Montréal.
-    A day designed around scenery rather than ticking boxes.
-  </p>
-
-  <div class="card">
-    <div class="route">
-      <strong>01 · Leave the Fairmont</strong>
-      <p>Early enough to escape the city without making the morning painful.</p>
-    </div>
-
-    <div class="route">
-      <strong>02 · Laurentian scenery</strong>
-      <p>Forests, lakes and increasingly dramatic Québec landscapes.</p>
-    </div>
-
-    <div class="route">
-      <strong>03 · Mont-Tremblant</strong>
-      <p>Explore the village, stop for coffee and take the photographs.</p>
-    </div>
-
-    <div class="route">
-      <strong>04 · Lake stop</strong>
-      <p>Leave time for an unscheduled waterside stop — this is part of the point.</p>
-    </div>
-
-    <div class="route">
-      <strong>05 · Back to Montréal</strong>
-      <p>Return without committing yourselves to a formal dinner.</p>
-    </div>
-
-    <a class="button"
-       href="https://www.google.com/maps/dir/Fairmont+The+Queen+Elizabeth,+Montreal/Mont-Tremblant,+QC/"
-       target="_blank">Launch Google Maps ↗</a>
-  </div>
-
-  <p class="note">
-    Canada drives on the <strong>right</strong>. At a red light,
-    right turns are normally permitted in Québec — but importantly,
-    <strong>not on the Island of Montréal</strong>.
-  </p>
-</section>
-
-<section id="eat">
-  <div class="eyebrow">03 · Food</div>
-  <h2>Eat exceptionally well</h2>
-
-  <div class="card">
-    <h3>Mastard</h3>
-    <p><strong>Thursday · 20:00 · BOOKED</strong></p>
-    <p>
-      One of the trip's destination dinners. Québécois ingredients,
-      inventive cooking and exactly the sort of meal worth building an
-      evening around.
-    </p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=Mastard+Montreal"
-       target="_blank">Google Maps ↗</a>
-  </div>
-
-  <div class="card">
-    <h3>Monarque</h3>
-    <p><strong>Saturday · 20:15 · BOOKED</strong></p>
-    <p>
-      Polished Old Montréal dining for Saturday night.
-    </p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=Monarque+Montreal"
-       target="_blank">Google Maps ↗</a>
-  </div>
-
-  <div class="card">
-    <h3>Damas</h3>
-    <p>
-      Syrian cooking, dramatic interiors and a strong option if another
-      blow-out dinner suddenly feels necessary.
-    </p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=Damas+Montreal"
-       target="_blank">Google Maps ↗</a>
-  </div>
-
-  <p class="note">
-    Road-book rule: don't overbook. Montréal is a city where an
-    excellent-looking bar, bakery or terrace should be allowed to
-    derail the plan.
-  </p>
-</section>
-
-<section id="coffee">
-  <div class="eyebrow">04 · Café file</div>
-  <h2>Coffee & wandering</h2>
-
-  <div class="card">
-    <h3>Café Olimpico</h3>
-    <p>An institution. Espresso, neighbourhood atmosphere and very Montréal.</p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=Cafe+Olimpico+Montreal"
-       target="_blank">Take me there ↗</a>
-  </div>
-
-  <div class="card">
-    <h3>Tommy Café</h3>
-    <p>Handsome interiors and an easy Old Montréal coffee stop.</p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=Tommy+Cafe+Montreal"
-       target="_blank">Take me there ↗</a>
-  </div>
-
-  <div class="card">
-    <h3>September Surf Café</h3>
-    <p>Minimal, cool and worth having in the back pocket.</p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=September+Surf+Cafe+Montreal"
-       target="_blank">Take me there ↗</a>
-  </div>
-</section>
-
-<section id="drink">
-  <div class="eyebrow">05 · After dark</div>
-  <h2>Wine, cocktails & IPA</h2>
-
-  <div class="card">
-    <h3>Hotel bar</h3>
-    <p>
-      Your easy fallback and the replacement for the unavailable
-      William Gray terrace cocktails.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Montréal wine bars</h3>
-    <p>
-      Look for small natural-wine bars around Little Italy, Mile End
-      and the Plateau. Perfect territory for an unscheduled glass.
-    </p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=wine+bar+Montreal"
-       target="_blank">Find nearby ↗</a>
-  </div>
-
-  <div class="card">
-    <h3>Local craft beer</h3>
-    <p>
-      Montréal does craft beer exceptionally well. Use this when the
-      wine fatigue eventually arrives.
-    </p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=craft+beer+Montreal"
-       target="_blank">Find nearby ↗</a>
-  </div>
-</section>
-
-<section id="see">
-  <div class="eyebrow">06 · Camera roll</div>
-  <h2>The Instagram file</h2>
-
-  <div class="card">
-    <h3>Old Montréal</h3>
-    <p>Cobbles, façades, side streets and early-morning light.</p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=Old+Montreal"
-       target="_blank">Map ↗</a>
-  </div>
-
-  <div class="card">
-    <h3>Mount Royal</h3>
-    <p>The classic city panorama. Go when the light is good.</p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=Mount+Royal+Lookout+Montreal"
-       target="_blank">Map ↗</a>
-  </div>
-
-  <div class="card">
-    <h3>Plateau Mont-Royal</h3>
-    <p>
-      Colourful houses, exterior staircases, leafy streets and
-      effortless Montréal photographs.
-    </p>
-    <a class="button"
-       href="https://www.google.com/maps/search/?api=1&query=Plateau+Mont+Royal+Montreal"
-       target="_blank">Map ↗</a>
-  </div>
-
-  <div class="card">
-    <h3>Mont-Tremblant</h3>
-    <p>
-      The road-trip hero shot: mountains, water and a completely
-      different Québec from downtown Montréal.
-    </p>
-  </div>
-</section>
-
-<section>
-  <div class="eyebrow">07 · Daily numbers</div>
-  <h2>Keep moving</h2>
 
   <div class="grid">
-    <div class="stat">
-      <div class="big-number">10–12k</div>
-      <small>STEPS · CITY DAYS</small>
-    </div>
 
-    <div class="stat">
-      <div class="big-number">8k+</div>
-      <small>STEPS · ROAD TRIP</small>
-    </div>
-  </div>
+    <article class="card dark">
+      <div class="kicker">Departure countdown</div>
+      <div class="big-number" id="countdown">—</div>
+      <div id="countdownLabel">until Montréal</div>
+      <div class="status">BA Club World · YUL</div>
+    </article>
 
-  <p>
-    Montréal is made for walking. Let the city days do most of the
-    work rather than turning the holiday into a fitness programme.
-  </p>
-</section>
+    <article class="card">
+      <div class="kicker">Montréal weather</div>
+      <div class="weather-icon" id="weatherIcon">☁️</div>
+      <div class="weather-temp" id="temperature">—°</div>
+      <div id="weatherText" class="loading">Loading live weather…</div>
 
-<section id="pack">
-  <div class="eyebrow">08 · Suitcase</div>
-  <h2>What to wear</h2>
+      <div class="forecast" id="forecast"></div>
+      <div class="small" id="weatherUpdated" style="margin-top:12px;"></div>
+    </article>
 
-  <div class="card">
-    <h3>Day</h3>
-    <p>
-      Good trainers, relaxed trousers/shorts, tees, overshirts,
-      sunglasses and something light for changeable weather.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Dinner</h3>
-    <p>
-      Elevated but not stuffy. This is where the statement
-      <strong>AMI</strong> and <strong>Loewe</strong> pieces earn
-      their luggage allowance.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Road trip</h3>
-    <p>
-      Layers, trainers, lightweight jacket, sunglasses, water and a
-      portable charger.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Do not forget</h3>
-    <p>
-      Passport · driving licence · chargers · power bank · sunglasses ·
-      light rain layer · gym kit · comfortable walking shoes.
-    </p>
   </div>
 </section>
 
-<section>
-  <div class="eyebrow">09 · Headquarters</div>
-  <h2>Fairmont The Queen Elizabeth</h2>
 
-  <p>
-    Your downtown base for the week — useful for transport,
-    Old Montréal and returning for an afternoon reset before dinner.
-  </p>
+<section class="section" id="plan">
 
-  <a class="button"
-     href="https://www.google.com/maps/search/?api=1&query=Fairmont+The+Queen+Elizabeth+Montreal"
-     target="_blank">Open hotel in Maps ↗</a>
+  <div class="section-title">
+    <div class="kicker">The itinerary</div>
+    <h2>Seven days, no rushing</h2>
+  </div>
+
+  <div class="day">
+    <div class="day-date">Tue<br>25 Aug</div>
+    <div class="day-body">
+      <h3>Touch down</h3>
+      <p>
+        Arrive Montréal–Trudeau at <strong>20:15</strong>.
+        Sedan meet-and-greet to Fairmont The Queen Elizabeth.
+      </p>
+      <p>
+        Check in, unpack and have a first drink at the hotel rather than
+        attempting heroic sightseeing on night one.
+      </p>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-date">Wed<br>26 Aug</div>
+    <div class="day-body">
+      <h3>The Québec road trip</h3>
+      <p>
+        Pick up the car and head out of the city for lakes, forests and
+        properly cinematic Québec scenery.
+      </p>
+      <div class="note">
+        This is the day for the big photographs — keep the schedule loose.
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-date">Thu<br>27 Aug</div>
+    <div class="day-body">
+      <h3>Neighbourhood Montréal</h3>
+      <p>
+        Slow morning, coffee, Mile End / Plateau wandering and time back at
+        the hotel before dinner.
+      </p>
+
+      <div class="booking">
+        <div class="time">20:00 · Confirmed</div>
+        <h3>Mastard</h3>
+        <p>One of the trip's destination dinners.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-date">Fri<br>28 Aug</div>
+    <div class="day-body">
+      <h3>Old Montréal → Gay Village</h3>
+      <p>
+        Architecture, waterside wandering and an unhurried afternoon.
+        Then back to change before heading to the Village.
+      </p>
+      <div class="note">
+        Friday is deliberately the looser night: drinks, people watching and
+        follow whichever bar looks fun.
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-date">Sat<br>29 Aug</div>
+    <div class="day-body">
+      <h3>Markets, wine & Monarque</h3>
+      <p>
+        A late start followed by local shopping, cafés and wine before one of
+        the headline dinners.
+      </p>
+
+      <div class="booking">
+        <div class="time">20:15 · Confirmed</div>
+        <h3>Monarque</h3>
+        <p>A proper Saturday-night Montréal dinner.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-date">Sun<br>30 Aug</div>
+    <div class="day-body">
+      <h3>Sunday Montréal</h3>
+      <p>
+        Brunch, Mount Royal, hidden viewpoints and a relaxed evening.
+        Keep dinner spontaneous.
+      </p>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-date">Mon<br>31 Aug</div>
+    <div class="day-body">
+      <h3>The last full day</h3>
+      <p>
+        Revisit whichever neighbourhood won you over, buy anything you
+        regretted leaving behind and fit in one last very good glass of wine.
+      </p>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-date">Tue<br>1 Sep</div>
+    <div class="day-body">
+      <h3>One last Montréal morning</h3>
+      <p>
+        Coffee, a final wander and an easy afternoon before heading to YUL.
+        Flight departs at <strong>22:00</strong>.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="section" id="bookings">
+
+  <div class="section-title">
+    <div class="kicker">Locked in</div>
+    <h2>The important bits</h2>
+  </div>
+
+  <div class="grid">
+
+    <article class="card">
+      <div class="kicker">Hotel</div>
+      <h3>Fairmont The Queen Elizabeth</h3>
+      <p>
+        Downtown base for the full trip.
+      </p>
+      <a class="button"
+         href="https://maps.google.com/?q=Fairmont+The+Queen+Elizabeth+Montreal"
+         target="_blank">
+        Open in Maps
+      </a>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Airport transfer</div>
+      <h3>Sedan Limousine</h3>
+      <p>
+        YUL meet & greet → hotel.
+      </p>
+      <p><strong>CAD $180</strong> including taxes.</p>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Thursday · 20:00</div>
+      <h3>Mastard</h3>
+      <p>Confirmed via hotel concierge.</p>
+      <a class="button"
+         href="https://maps.google.com/?q=Mastard+Montreal"
+         target="_blank">
+        Open in Maps
+      </a>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Saturday · 20:15</div>
+      <h3>Monarque</h3>
+      <p>Confirmed.</p>
+      <a class="button"
+         href="https://maps.google.com/?q=Monarque+Montreal"
+         target="_blank">
+        Open in Maps
+      </a>
+    </article>
+
+  </div>
+</section>
+
+
+<section class="section" id="money">
+
+  <div class="section-title">
+    <div class="kicker">Live FX</div>
+    <h2>What does that cost?</h2>
+  </div>
+
+  <div class="grid">
+
+    <article class="card">
+      <div class="kicker">Current exchange rate</div>
+
+      <div class="big-number" id="fxRate">—</div>
+      <div id="fxDescription" class="loading">
+        Loading CAD → GBP…
+      </div>
+
+      <div class="small" id="fxDate" style="margin-top:8px;"></div>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Quick converter</div>
+      <h3>Canadian dollars → pounds</h3>
+
+      <div class="fx-box">
+        <input
+          id="cadAmount"
+          type="number"
+          inputmode="decimal"
+          value="100"
+          min="0"
+          aria-label="Canadian dollar amount">
+      </div>
+
+      <div class="fx-result" id="conversionResult">
+        Calculating…
+      </div>
+    </article>
+
+  </div>
+
+  <div class="note">
+    Card terminals may offer to charge you in GBP. Usually choose CAD and let
+    your own card provider handle the conversion.
+  </div>
+
+</section>
+
+
+<section class="section" id="notes">
+
+  <div class="section-title">
+    <div class="kicker">Pocket notes</div>
+    <h2>The useful stuff</h2>
+  </div>
+
+  <div class="grid">
+
+    <article class="card">
+      <h3>Driving</h3>
+      <p>
+        Canada drives on the <strong>right</strong>. Take a moment when first
+        leaving the car park and again after every stop.
+      </p>
+    </article>
+
+    <article class="card">
+      <h3>Pace</h3>
+      <p>
+        One or two things worth remembering each day beats trying to complete
+        Montréal like a checklist.
+      </p>
+    </article>
+
+    <article class="card">
+      <h3>Rain plan</h3>
+      <p>
+        Coffee, markets, galleries, hotel downtime and a long lunch.
+        No holiday has ever been improved by fighting horizontal rain.
+      </p>
+    </article>
+
+    <article class="card">
+      <h3>Photography</h3>
+      <p>
+        Early morning for Old Montréal. Golden hour for Mount Royal and the
+        city skyline.
+      </p>
+    </article>
+
+  </div>
+
 </section>
 
 </main>
 
+
 <footer>
-  <div class="kicker">Richie & Alex · Québec · 2026</div>
-  <h2>À bientôt, Montréal.</h2>
-  <p>25 August — 1 September 2026</p>
+  <strong>Montréal 2026</strong>
+  Richie + Alex · 25 Aug — 1 Sep
 </footer>
+
+
+<script>
+
+/* -----------------------------------------
+   TRIP COUNTDOWN
+----------------------------------------- */
+
+function updateCountdown(){
+  const departure = new Date("2026-08-25T00:00:00+01:00");
+  const now = new Date();
+  const difference = departure - now;
+
+  const element = document.getElementById("countdown");
+  const label = document.getElementById("countdownLabel");
+
+  if(difference <= 0){
+    element.textContent = "ON";
+    label.textContent = "Montréal mode";
+    return;
+  }
+
+  const days = Math.ceil(difference / 86400000);
+  element.textContent = days;
+  label.textContent = days === 1 ? "day to go" : "days to go";
+}
+
+updateCountdown();
+
+
+/* -----------------------------------------
+   WEATHER
+   Montréal coordinates
+----------------------------------------- */
+
+const WEATHER_URL =
+  "https://api.open-meteo.com/v1/forecast" +
+  "?latitude=45.5017" +
+  "&longitude=-73.5673" +
+  "&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m" +
+  "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max" +
+  "&temperature_unit=celsius" +
+  "&wind_speed_unit=kmh" +
+  "&timezone=America%2FToronto" +
+  "&forecast_days=4";
+
+function weatherDescription(code){
+  const descriptions = {
+    0:"Clear skies",
+    1:"Mainly clear",
+    2:"Partly cloudy",
+    3:"Overcast",
+    45:"Foggy",
+    48:"Rime fog",
+    51:"Light drizzle",
+    53:"Drizzle",
+    55:"Heavy drizzle",
+    61:"Light rain",
+    63:"Rain",
+    65:"Heavy rain",
+    71:"Light snow",
+    73:"Snow",
+    75:"Heavy snow",
+    80:"Rain showers",
+    81:"Rain showers",
+    82:"Heavy showers",
+    95:"Thunderstorms",
+    96:"Thunderstorms",
+    99:"Heavy thunderstorms"
+  };
+
+  return descriptions[code] || "Mixed conditions";
+}
+
+function weatherEmoji(code){
+  if(code === 0) return "☀️";
+  if(code === 1) return "🌤️";
+  if(code === 2) return "⛅";
+  if(code === 3) return "☁️";
+  if(code === 45 || code === 48) return "🌫️";
+  if(code >= 51 && code <= 67) return "🌧️";
+  if(code >= 71 && code <= 77) return "❄️";
+  if(code >= 80 && code <= 82) return "🌦️";
+  if(code >= 95) return "⛈️";
+  return "🌤️";
+}
+
+async function loadWeather(){
+
+  try{
+
+    const response = await fetch(WEATHER_URL);
+
+    if(!response.ok){
+      throw new Error("Weather request failed");
+    }
+
+    const data = await response.json();
+
+    const current = data.current;
+    const daily = data.daily;
+
+    document.getElementById("weatherIcon").textContent =
+      weatherEmoji(current.weather_code);
+
+    document.getElementById("temperature").textContent =
+      Math.round(current.temperature_2m) + "°";
+
+    document.getElementById("weatherText").classList.remove("loading");
+
+    document.getElementById("weatherText").textContent =
+      weatherDescription(current.weather_code) +
+      " · Feels like " +
+      Math.round(current.apparent_temperature) +
+      "°C · Wind " +
+      Math.round(current.wind_speed_10m) +
+      " km/h";
+
+    const forecast = document.getElementById("forecast");
+    forecast.innerHTML = "";
+
+    daily.time.forEach((date,index)=>{
+
+      const localDate = new Date(date + "T12:00:00");
+
+      const day =
+        index === 0
+          ? "Today"
+          : localDate.toLocaleDateString("en-GB",{
+              weekday:"short"
+            });
+
+      const item = document.createElement("div");
+      item.className = "forecast-day";
+
+      item.innerHTML =
+        "<div>" + day + "</div>" +
+        "<div style='font-size:20px;margin:5px 0'>" +
+        weatherEmoji(daily.weather_code[index]) +
+        "</div>" +
+        "<strong>" +
+        Math.round(daily.temperature_2m_max[index]) +
+        "° / " +
+        Math.round(daily.temperature_2m_min[index]) +
+        "°</strong>" +
+        "<div style='margin-top:4px'>" +
+        daily.precipitation_probability_max[index] +
+        "% rain</div>";
+
+      forecast.appendChild(item);
+
+    });
+
+    document.getElementById("weatherUpdated").textContent =
+      "Live forecast · Montréal local time";
+
+  }
+  catch(error){
+
+    document.getElementById("weatherText").classList.remove("loading");
+
+    document.getElementById("weatherText").textContent =
+      "Weather temporarily unavailable — tap refresh in a moment.";
+
+    console.error(error);
+
+  }
+
+}
+
+loadWeather();
+
+
+/* -----------------------------------------
+   LIVE CAD → GBP FX
+----------------------------------------- */
+
+let cadToGbp = null;
+
+async function loadFX(){
+
+  try{
+
+    const response =
+      await fetch(
+        "https://api.frankfurter.dev/v1/latest?base=CAD&symbols=GBP"
+      );
+
+    if(!response.ok){
+      throw new Error("FX request failed");
+    }
+
+    const data = await response.json();
+
+    cadToGbp = data.rates.GBP;
+
+    document.getElementById("fxRate").textContent =
+      "£" + cadToGbp.toFixed(3);
+
+    document.getElementById("fxDescription").classList.remove("loading");
+
+    document.getElementById("fxDescription").textContent =
+      "£" +
+      cadToGbp.toFixed(3) +
+      " for CAD $1";
+
+    document.getElementById("fxDate").textContent =
+      "Reference rate · " + data.date;
+
+    updateConversion();
+
+  }
+  catch(error){
+
+    document.getElementById("fxDescription").classList.remove("loading");
+
+    document.getElementById("fxDescription").textContent =
+      "Exchange rate temporarily unavailable.";
+
+    document.getElementById("conversionResult").textContent =
+      "Try refreshing the page.";
+
+    console.error(error);
+
+  }
+
+}
+
+function updateConversion(){
+
+  if(!cadToGbp) return;
+
+  const amount =
+    parseFloat(document.getElementById("cadAmount").value) || 0;
+
+  const gbp = amount * cadToGbp;
+
+  document.getElementById("conversionResult").innerHTML =
+    "<strong>CAD $" +
+    amount.toLocaleString("en-CA",{
+      maximumFractionDigits:2
+    }) +
+    "</strong> ≈ <strong>£" +
+    gbp.toLocaleString("en-GB",{
+      minimumFractionDigits:2,
+      maximumFractionDigits:2
+    }) +
+    "</strong>";
+
+}
+
+document
+  .getElementById("cadAmount")
+  .addEventListener("input",updateConversion);
+
+loadFX();
+
+</script>
 
 </body>
 </html>
