@@ -586,7 +586,7 @@
     <a href="#coffee">Coffee</a>
     <a href="#beer">IPA + Wine</a>
     <a href="#weather">Weather</a>
-    <a href="#fx">GBP/CAD</a>
+    <a href="#fx">CAD/GBP</a>
     <a href="#useful">Useful</a>
   </div>
 </nav>
@@ -713,9 +713,9 @@
     <div class="btn-row">
   <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Gay+Village+Montreal">🌈 Open Gay Village in Maps</a>
 </div>
-    
-    
-    
+
+
+
 
   </div>
 
@@ -1523,7 +1523,7 @@
     </div>
 
     <h2>
-      Pounds into dollars.
+      Dollars into pounds.
     </h2>
 
     <p>
@@ -1536,7 +1536,7 @@
   <div class="live-panel">
 
     <div class="eyebrow" style="color:#b9c3b5;">
-      GBP → CAD
+      CAD → GBP
     </div>
 
     <h3>
@@ -1550,7 +1550,7 @@
       </div>
 
       <div>
-        CAD for £1
+        GBP for C$1
       </div>
 
     </div>
@@ -1558,17 +1558,17 @@
     <div class="converter">
 
       <input
-        id="gbpInput"
+        id="cadInput"
         type="number"
         inputmode="decimal"
         value="100"
         min="0"
         step="1"
-        aria-label="Amount in pounds"
+        aria-label="Amount in Canadian dollars"
       >
 
-      <div class="convert-result" id="cadResult">
-        £100 = … CAD
+      <div class="convert-result" id="gbpResult">
+        C$100 = … GBP
       </div>
 
     </div>
@@ -1987,20 +1987,20 @@ function updateConverter(){
   if(!gbpCadRate)
     return;
 
-  const gbp =
+  const cad =
     parseFloat(
       document.getElementById(
-        "gbpInput"
+        "cadInput"
       ).value
     ) || 0;
 
-  const cad =
-    gbp * gbpCadRate;
+  const gbp =
+    cad / gbpCadRate;
 
   document.getElementById(
-    "cadResult"
+    "gbpResult"
   ).textContent =
-    `£${gbp.toFixed(0)} ≈ C$${cad.toFixed(2)}`;
+    `C$${cad.toFixed(0)} ≈ £${gbp.toFixed(2)}`;
 
   document.getElementById(
     "cad10"
@@ -2057,7 +2057,7 @@ async function loadFX(){
     document.getElementById(
       "fxRate"
     ).textContent =
-      gbpCadRate.toFixed(4);
+      (1 / gbpCadRate).toFixed(4);
 
     document.getElementById(
       "fxDate"
@@ -2074,7 +2074,7 @@ async function loadFX(){
     document.getElementById(
       "fxRate"
     ).textContent =
-      gbpCadRate.toFixed(2) +
+      (1 / gbpCadRate).toFixed(4) +
       "*";
 
     document.getElementById(
@@ -2089,7 +2089,7 @@ async function loadFX(){
 }
 
 document.getElementById(
-  "gbpInput"
+  "cadInput"
 ).addEventListener(
   "input",
   updateConverter
