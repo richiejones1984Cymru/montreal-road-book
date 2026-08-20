@@ -2085,6 +2085,55 @@ document.getElementById(
 loadFX();
 
 </script>
+<script>
+const venueWebsites = {
+  "Mastard": "https://restaurantmastard.com/",
+  "Monarque": "https://restaurantmonarque.ca/en/",
+  "Structure Coffee Roasters": "https://structurecoffeeroasters.com/",
+  "Café Olimpico": "https://cafeolimpico.com/",
+  "Café Névé": "http://www.cafeneve.com/",
+  "Melk": "https://melk.cafe/en",
+  "Dieu du Ciel!": "https://dieuduciel.com/en/",
+  "Brutopia": "https://www.brutopia.net/",
+  "Vinvinvin": "https://vinvinvin.ca/",
+  "Pullman": "https://pullman-mtl.com/"
+};
 
+document.querySelectorAll(".card").forEach(card => {
+  const heading = card.querySelector("h3");
+  if (!heading) return;
+
+  const title = heading.textContent.trim();
+
+  const match = Object.keys(venueWebsites).find(
+    venue => title.startsWith(venue)
+  );
+
+  if (!match) return;
+
+  let buttonRow = card.querySelector(".btn-row");
+
+  if (!buttonRow) {
+    buttonRow = document.createElement("div");
+    buttonRow.className = "btn-row";
+    card.appendChild(buttonRow);
+  }
+
+  const alreadyAdded = [...buttonRow.querySelectorAll("a")]
+    .some(link => link.textContent.includes("Website"));
+
+  if (!alreadyAdded) {
+    const websiteButton = document.createElement("a");
+
+    websiteButton.className = "btn alt";
+    websiteButton.href = venueWebsites[match];
+    websiteButton.target = "_blank";
+    websiteButton.rel = "noopener";
+    websiteButton.textContent = "Website ↗";
+
+    buttonRow.appendChild(websiteButton);
+  }
+});
+</script>
 </body>
 </html>
